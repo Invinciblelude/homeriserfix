@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --gold: #d4954a;
+    --gold-light: #e9c899;
+    --gold-dark: #a56234;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-obsidian-950 text-cream-200 antialiased;
+    background-image: 
+      radial-gradient(ellipse at top, rgba(212, 149, 74, 0.03) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom, rgba(212, 149, 74, 0.02) 0%, transparent 50%);
+  }
+
+  ::selection {
+    @apply bg-brass-500/30 text-cream-50;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-obsidian-900;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-brass-600/50 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-brass-500/70;
+  }
+}
+
+@layer components {
+  /* Luxury Button Styles */
+  .btn-luxury {
+    @apply relative inline-flex items-center justify-center px-8 py-4 overflow-hidden
+           font-body text-sm uppercase tracking-[0.2em] font-medium
+           transition-all duration-500 ease-out;
+  }
+
+  .btn-luxury-primary {
+    @apply btn-luxury bg-gradient-to-r from-brass-600 via-brass-500 to-brass-600
+           text-obsidian-950 hover:shadow-[0_0_40px_rgba(212,149,74,0.3)]
+           before:absolute before:inset-0 before:bg-gradient-to-r 
+           before:from-brass-400 before:via-brass-300 before:to-brass-400
+           before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-500;
+  }
+
+  .btn-luxury-outline {
+    @apply btn-luxury border border-brass-500/50 text-brass-400
+           hover:border-brass-400 hover:text-brass-300
+           hover:shadow-[0_0_30px_rgba(212,149,74,0.15)]
+           hover:bg-brass-500/5;
+  }
+
+  /* Glass effect */
+  .glass {
+    @apply bg-obsidian-800/40 backdrop-blur-xl border border-white/5;
+  }
+
+  .glass-gold {
+    @apply bg-brass-500/5 backdrop-blur-xl border border-brass-500/20;
+  }
+
+  /* Gold text gradient */
+  .text-gold-gradient {
+    @apply bg-gradient-to-r from-brass-400 via-brass-300 to-brass-400 
+           bg-clip-text text-transparent bg-[length:200%_auto] animate-gold-shimmer;
+  }
+
+  /* Decorative line */
+  .gold-line {
+    @apply h-px bg-gradient-to-r from-transparent via-brass-500/50 to-transparent;
+  }
+
+  .gold-line-vertical {
+    @apply w-px bg-gradient-to-b from-transparent via-brass-500/50 to-transparent;
+  }
+
+  /* Section padding */
+  .section-padding {
+    @apply py-24 md:py-32 lg:py-40;
+  }
+
+  /* Container */
+  .container-luxury {
+    @apply mx-auto max-w-7xl px-6 lg:px-8;
+  }
+
+  /* Heading styles */
+  .heading-display {
+    @apply font-display text-4xl md:text-5xl lg:text-6xl xl:text-7xl 
+           font-normal leading-[1.1] tracking-tight;
+  }
+
+  .heading-section {
+    @apply font-display text-3xl md:text-4xl lg:text-5xl 
+           font-normal leading-[1.2] tracking-tight;
+  }
+
+  /* Eyebrow text */
+  .eyebrow {
+    @apply font-body text-xs uppercase tracking-[0.3em] text-brass-400 mb-4;
+  }
+
+  /* Card hover effect */
+  .card-hover {
+    @apply transition-all duration-500 hover:-translate-y-2 
+           hover:shadow-[0_20px_60px_-20px_rgba(212,149,74,0.15)];
+  }
+
+  /* Image reveal on hover */
+  .image-reveal {
+    @apply overflow-hidden;
+  }
+
+  .image-reveal img {
+    @apply transition-transform duration-700 ease-out hover:scale-110;
+  }
+
+  /* Animated underline */
+  .animated-underline {
+    @apply relative;
+  }
+
+  .animated-underline::after {
+    @apply content-[''] absolute bottom-0 left-0 w-0 h-px bg-brass-500
+           transition-all duration-500;
+  }
+
+  .animated-underline:hover::after {
+    @apply w-full;
+  }
+
+  /* Noise overlay */
+  .noise-overlay::before {
+    content: '';
+    @apply absolute inset-0 opacity-[0.03] pointer-events-none z-10;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)'/%3E%3C/svg%3E");
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+  .delay-600 { animation-delay: 600ms; }
+  .delay-700 { animation-delay: 700ms; }
+  .delay-800 { animation-delay: 800ms; }
+}
+
