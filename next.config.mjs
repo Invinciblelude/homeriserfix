@@ -1,6 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: "export",
+  basePath: "/homeriserfix",
+  assetPrefix: "/homeriserfix/",
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",
@@ -8,7 +12,7 @@ const nextConfig = {
       },
     ],
   },
+  trailingSlash: true,
 };
 
 export default nextConfig;
-
